@@ -1,3 +1,20 @@
+LibName = "BlazeLib"
+LibVersion = "Alpha 0.1"
+LibVersionNum = "0.1"
+Authur = "Nickname912"
+
+
+--APIs
+
+--Blaze
+--Rednet
+--Pherphials/Redstone
+--OS
+--Filesystem
+--Grahpics
+--OneOS
+
+--Prints a 1 line tittlebar(tbar). Args(text, backgroundcolor, textcolor , y pos)
 function titleBar(txt,tBarC,tBartC,y)
   term.setCursorPos(1,y)
   term.setBackgroundColor(tBarC)
@@ -7,7 +24,8 @@ function titleBar(txt,tBarC,tBartC,y)
   write(txt)
 end
 
-function header(txt,tBarC,tBartC)
+--Prints a 3 line header at the top of the scren optimazed for OneOS
+function Header(txt, tBarC, tBartC)
    if OneOS then
    	OneOS.ToolBarColour = tBarC
    	OneOS.ToolBarTextColour = tBartC
