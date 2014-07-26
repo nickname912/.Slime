@@ -7,6 +7,8 @@ index ={[1]Math,[2]Graphics}
 
 --Math
 
+local Pi = 3,141592653589793
+
 --[[Comparsion methoods: eq=equal, ge=greater or equal,gt greater then,
                          le=less or equal,lt=lesser then,ne= not equal]]--
 function mathCompare(x,y,methood) 
