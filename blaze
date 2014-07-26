@@ -3,7 +3,7 @@ LibVersion = "Alpha 0.1"
 LibVersionNum = "0.1"
 Authur = "Nickname912"
 
-index ={[1]Math,[2]Graphics}
+index = {[1] = "Math",[2] = "Grahpics"}
 
 --Math
 
