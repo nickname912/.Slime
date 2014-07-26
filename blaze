@@ -5,17 +5,23 @@ Authur = "Nickname912"
 
 
 --APIs
+--Math
 
---Blaze
---Rednet
---Pherphials/Redstone
---OS
---Filesystem
+function mathCompare(x,y,methood)
+  if methood == "eq" and x == y then
+     return true
+  elseif methood == "ge" and x >= y then 
+     return true
+  elseif methood == "gt" and x > y then
+     return true
+  end
+  
+end
+
 --Grahpics
---OneOS
 
 --Prints a 1 line tittlebar(tbar). Args(text, backgroundcolor, textcolor , y pos)
-function titleBar(txt,tBarC,tBartC,y)
+function GrahpicsTbar(txt,tBarC,tBartC,y)
   term.setCursorPos(1,y)
   term.setBackgroundColor(tBarC)
   term.setTextColor(tBartC)
@@ -25,7 +31,7 @@ function titleBar(txt,tBarC,tBartC,y)
 end
 
 --Prints a 3 line header at the top of the scren optimazed for OneOS
-function Header(txt, tBarC, tBartC)
+function GrahpicsHeader(txt, tBarC, tBartC)
    if OneOS then
    	OneOS.ToolBarColour = tBarC
    	OneOS.ToolBarTextColour = tBartC
