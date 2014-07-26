@@ -3,19 +3,28 @@ LibVersion = "Alpha 0.1"
 LibVersionNum = "0.1"
 Authur = "Nickname912"
 
+index ={[1]Math,[2]Graphics}
 
---APIs
 --Math
 
-function mathCompare(x,y,methood)
+--[[Comparsion methoods: eq=equal, ge=greater or equal,gt greater then,
+                         le=less or equal,lt=lesser then,ne= not equal]]--
+function mathCompare(x,y,methood) 
   if methood == "eq" and x == y then
      return true
   elseif methood == "ge" and x >= y then 
      return true
   elseif methood == "gt" and x > y then
      return true
+  elseif methood == "le" and x <= y then
+     return true
+  elseif methood == "lt" and x < y then
+    return true
+  elseif methood== "ne"  and  x ~= y then
+    return true
+  else 
+    return false
   end
-  
 end
 
 --Grahpics
