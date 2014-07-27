@@ -1,6 +1,6 @@
 LibName = "SlimeLib"
-LibVersion = "Alpha 0.1"
-LibVersionNum = "0.1"
+LibVersion = "Alpha 0.5"
+LibVersionNum = "0.5"
 Authur = "Nickname912"
 
 --index = {[1] = "Math",[2] = "Grahpics"}
