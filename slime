@@ -69,7 +69,7 @@ end
 
 --Clear the screen, set cursorPos 1,1, if advComputer textColor = tC & backColor = bC
 --if nil use standard colour
-local function advClear(tC,bC)
+function advClear(tC,bC)
   if term.isColor and term.isColor() then
     if tC == nil and bC == nil then
       term.setBackgroundColor(colors.black)
@@ -84,7 +84,7 @@ local function advClear(tC,bC)
 end
 
 --Prints in the center ,ny = y axis
-local function centerPrint(text, ny)
+function centerPrint(text, ny)
     if type(text) == "table" then
 		for _,v in pairs(text) do
 	      centerPrint(v)
