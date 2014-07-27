@@ -69,7 +69,7 @@ end
 
 local function advClear(tC,bC,x,y)
   if term.isColor and term.isColor() then
-    if tC = nil and bC = nil then
+    if tC == nil and bC == nil then
       term.setBackgroundColor(color.black)
 	    term.setTextColor(colors.white)
 	else 
