@@ -67,10 +67,12 @@ function Header(txt, tBarC, tBartC)
    end
 end
 
-local function advClear(tC,bC,x,y)
+--Clear the screen, set cursorPos 1,1, if advComputer textColor = tC & backColor = bC
+--if nil use standard colour
+local function advClear(tC,bC)
   if term.isColor and term.isColor() then
     if tC == nil and bC == nil then
-      term.setBackgroundColor(color.black)
+      term.setBackgroundColor(colors.black)
 	    term.setTextColor(colors.white)
 	else 
 	  term.setBackgroundColor(bC)
@@ -78,14 +80,14 @@ local function advClear(tC,bC,x,y)
 	end   
   end
   term.clear()
-  term.setCursorPos(x, y)
+  term.setCursorPos(1, 1)
 end
 
 --Prints in the center ,ny = y axis
 local function centerPrint(text, ny)
-	if type(text) == "table" then
+    if type(text) == "table" then
 		for _,v in pairs(text) do
-			centerPrint(v)
+	      centerPrint(v)
 		end
 	else
 		local _,y = term.getCursorPos()
@@ -95,13 +97,20 @@ local function centerPrint(text, ny)
 	end
 end
 
+--Eror Screen ,runs a specifik function(func) and display an BSOD if an eror occur
 function Bsod(func)
   local ok, err = pcall(func)
   if ok then
-  advClear(0,2018,1,5)
-	centerPrint(" An Error Has Occured! D:\n\n")
-	centerPrint(" " .. tostring(err) .. "\n\n")
-	centerPrint(" Press any key to exit...")
-	os.pullEvent("key")
+    advClear(colors.white,colors.blue)
+    centerPrint("Blue Screen Of Death (BSOD)",3)
+    term.setTextColor(colors.red)
+    centerPrint("to bad API",7)
+    centerPrint("Check you program for error but if its a ")
+    centerPrint("problem with SlimeLib please contact me, ")
+    centerPrint("Nickname912")
+    centerPrint(" Press any key to exit...",12)
+    os.pullEvent("key")
   end
 end
+advClear()
+print("Thanks for using SlimeLib by Nickname912")
