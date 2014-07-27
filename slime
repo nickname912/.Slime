@@ -1,0 +1,107 @@
+LibName = "SlimeLib"
+LibVersion = "Alpha 0.1"
+LibVersionNum = "0.1"
+Authur = "Nickname912"
+
+--index = {[1] = "Math",[2] = "Grahpics"}
+
+--Math
+
+local Pi = 3,141592653589793
+
+--[[Comparsion methoods: eq=equal, ge=greater or equal,gt greater then,
+                         le=less or equal,lt=lesser then,ne= not equal]]--
+function mathCompare(x,y,methood) 
+  if methood == "eq" and x == y then
+     return true
+  elseif methood == "ge" and x >= y then 
+     return true
+  elseif methood == "gt" and x > y then
+     return true
+  elseif methood == "le" and x <= y then
+     return true
+  elseif methood == "lt" and x < y then
+    return true
+  elseif methood== "ne"  and  x ~= y then
+    return true
+  else 
+    return false
+  end
+end
+
+--Disabled for the moment
+--[[Scales start-end to newStart-newEnd num =number you want to scale
+  ex = mathScale(5,0,10,0,100) function will retun 50]]--
+--function mathScale(Num, start, end, newStart, newEnd)
+  --scale = end - start
+  --newScale = newStart - newEnd
+  --procentage = num / x
+  --newNum = procentage * newX
+  --return newNum
+--end
+
+
+--Grahpics
+
+--Prints a 1 line tittlebar(tbar). Args(text, backgroundcolor, textcolor , y pos)
+function tittleBar(txt,tBarC,tBartC,y)
+  term.setCursorPos(1,y)
+  term.setBackgroundColor(tBarC)
+  term.setTextColor(tBartC)
+  term.clearLine()
+  term.setCursorPos(3, y)
+  write(txt)
+end
+
+--Prints a 3 line header at the top of the scren optimazed for OneOS
+function Header(txt, tBarC, tBartC)
+   if OneOS then
+   	OneOS.ToolBarColour = tBarC
+   	OneOS.ToolBarTextColour = tBartC
+    y = 2
+   else	
+    y = 1
+    titleBar("",tBarC,tBartC,y)
+    titleBar(txt,tBarC,tBartC,y+1)
+    titleBar("",tBarC,tBartC,y+1)
+   end
+end
+
+local function graphicsClear(tC,bC,x,y)
+  if term.isColor and term.isColor() then
+    if tC = nil and bC = nil then
+      term.setBackgroundColor(color.black)
+	    term.setTextColor(colors.white)
+	else 
+	  term.setBackgroundColor(bC)
+	  term.setTextColor(tC)
+	end   
+  end
+  term.clear()
+  term.setCursorPos(x, y)
+end
+
+--Prints in the center ,ny = y axis
+local function centerPrint(text, ny)
+	if type(text) == "table" then
+		for _,v in pairs(text) do
+			centerPrint(v)
+		end
+	else
+		local _,y = term.getCursorPos()
+		local w,h = term.getSize()
+		term.setCursorPos(math.ceil((w-#text)/2), ny or y)
+		print(text)
+	end
+end
+
+function Bsod(func)
+  local ok, err = pcall(func)
+  if ok then
+  graphicsClear(0,2018,1,5)
+	centerPrint(" An Error Has Occured! D:\n\n")
+	centerPrint(" " .. tostring(err) .. "\n\n")
+	centerPrint(" Press any key to exit...")
+	os.pullEvent("key")
+  end
+end
