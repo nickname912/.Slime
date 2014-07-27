@@ -67,7 +67,7 @@ function Header(txt, tBarC, tBartC)
    end
 end
 
-local function graphicsClear(tC,bC,x,y)
+local function advClear(tC,bC,x,y)
   if term.isColor and term.isColor() then
     if tC = nil and bC = nil then
       term.setBackgroundColor(color.black)
@@ -98,7 +98,7 @@ end
 function Bsod(func)
   local ok, err = pcall(func)
   if ok then
-  graphicsClear(0,2018,1,5)
+  advClear(0,2018,1,5)
 	centerPrint(" An Error Has Occured! D:\n\n")
 	centerPrint(" " .. tostring(err) .. "\n\n")
 	centerPrint(" Press any key to exit...")
