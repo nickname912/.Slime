@@ -1,12 +1,20 @@
-os.loadAPI("Programs/SlimeLib.program/slime")
-slime.advClear(colors.lime,colors.white)
-slime.Header("SlimeLib",colors.lime,colors.white)
-term.setCursorPos(3,5)
+if OneOS then
+    OneOS.LoadAPI('/Programs/SlimeLib.program/slime')
+    OneOS.ToolBarColour = colours.lime
+    OneOS.ToolBarTextColour = colours.white
+else
+os.loadAPI("slime")
+end
+--os.loadAPI("Programs/SlimeLib.program/slime")
+slime.advClear(colors.white,colors.white)
+slime.titleBar("SlimeLib Launcher",colors.lime,colors.white,1)
+slime.setColor(colors.white,colors.lime)
+term.setCursorPos(3,4)
 print("Coming Soon:")
 print("   *Better Launcher")
-print("   *Wiki, for documentation look at the script slime")
+print("   *Wiki, for documentation look at the code")
 print("   *More Features")
 term.setCursorPos(1,10)
-print("Press any key to exit...")
-os.pullEvent("key)
-slime.clear()
+print("  Press any key to exit...")
+os.pullEvent("key")
+slime.advClear()
