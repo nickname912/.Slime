@@ -1,4 +1,4 @@
-BlazeLib
+.Slime
 ========
 
-computercraft api 
+computercraft api/laguage
